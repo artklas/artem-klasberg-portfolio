@@ -1,0 +1,448 @@
+/* Basic Reset & Global Styles */
+:root {
+    --primary-color: #0077cc; /* Example Blue */
+    --secondary-color: #4a4a4a;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+body {
+    font-family: var(--body-font);
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #222; /* Slightly darker headings */
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2rem; margin-bottom: 1.5rem; text-align: center; padding-top: 2.5rem;}
+h3 { font-size: 1.4rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #005fa3; /* Darker shade on hover */
+}
+
+ul {
+    list-style: none;
+    padding-left: 0; /* Remove default padding */
+}
+
+section {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+section:last-of-type {
+     border-bottom: none;
+}
+
+
+/* --- Hero Section --- */
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.1)), var(--card-bg); /* Subtle gradient */
+    color: var(--text-color);
+    text-align: center;
+    padding: 5rem 0 3rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    margin-bottom: 1.5rem;
+    border: 5px solid var(--card-bg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#hero h1 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+#hero h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    padding-top: 0; /* Override section default */
+    text-align: center; /* Override section default */
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-links {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* Align items vertically */
+    gap: 1rem 1.5rem; /* Row and column gap */
+}
+
+.contact-links a {
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    display: inline-flex; /* Helps align icon and text */
+    align-items: center; /* Vertically aligns icon and text */
+}
+
+.contact-links a:hover:not(.cta-button) { /* Don't change color on button hover here */
+    color: var(--primary-color);
+}
+
+
+.contact-links i {
+    margin-right: 0.5rem;
+    color: var(--primary-color); /* Icon color */
+    width: 1.2em; /* Give icon consistent width */
+    text-align: center; /* Center icon if needed */
+}
+
+/* === CHANGE START: Removed specific styling for .contact-links a.cta-button === */
+/* The CV download button will now inherit base .cta-button styles */
+/* === CHANGE END === */
+
+.hero-nav {
+    margin-top: 2rem;
+}
+
+/* Call to Action Buttons (Base Style) */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff !important; /* Use !important to override .contact-links a color if needed */
+    padding: 12px 25px;
+    border-radius: 25px; /* Pill shape */
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 0.5rem;
+    border: 2px solid var(--primary-color);
+    font-size: 0.95rem; /* Consistent font size */
+    line-height: normal; /* Ensure line-height doesn't cause issues */
+    text-align: center;
+}
+
+.cta-button:hover {
+    background-color: #005fa3;
+    color: #fff !important; /* Ensure text stays white */
+    transform: translateY(-2px);
+    border-color: #005fa3;
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: var(--primary-color) !important; /* Ensure correct text color */
+    border: 2px solid var(--primary-color);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--primary-color);
+    color: #fff !important; /* Ensure text turns white */
+}
+
+
+/* --- About Section --- */
+#about {
+    text-align: center;
+}
+#about p {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+    display: grid;
+    /* === CHANGE START: Default to 1 column for mobile === */
+    grid-template-columns: 1fr;
+    /* === CHANGE END === */
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* === CHANGE START: Apply 2 columns on wider screens === */
+@media (min-width: 600px) { /* Adjust breakpoint as needed */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* === CHANGE END === */
+
+
+.skill-category {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+.skill-category h3 {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    display: inline-block; /* Limit border width */
+}
+.skill-category h3 i {
+    margin-right: 0.75rem;
+    color: var(--primary-color);
+}
+
+.skill-category ul {
+    padding-left: 0.5rem; /* Indent list items slightly */
+}
+
+.skill-category li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* --- Experience Section (Timeline) --- */
+.timeline {
+    position: relative;
+    margin-top: 2rem;
+}
+
+/* The vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px; /* Adjust based on desired position */
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--primary-color);
+    opacity: 0.3;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 55px; /* Space for the dot */
+}
+
+/* The circle on the timeline */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 11.5px; /* Center the dot on the line (20px - (18px/2) - 3px/2) roughly */
+    top: 5px; /* Align with text */
+    width: 18px;
+    height: 18px;
+    background-color: var(--primary-color);
+    border: 3px solid var(--background-color); /* Match page background */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-content {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+.timeline-content h3 {
+    margin-bottom: 0.25rem;
+}
+.company-location {
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+.timeline-content ul {
+    list-style: disc; /* Use standard bullets inside */
+    padding-left: 1.5rem;
+}
+.timeline-content li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+
+/* --- Education Section --- */
+.education-entry {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+     border: 1px solid var(--border-color);
+}
+.education-entry h3 {
+    margin-bottom: 0.25rem;
+}
+.institution-location {
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+.education-entry ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+.education-entry li {
+     margin-bottom: 0.5rem;
+     font-size: 0.95rem;
+}
+
+/* --- Languages Section --- */
+.language-list li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    background: var(--card-bg);
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.lang {
+    font-weight: 600;
+}
+.level {
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+/* --- Contact CTA Section --- */
+#contact-cta {
+    text-align: center;
+    background-color: var(--card-bg); /* Make it stand out slightly */
+    padding: 3rem 1rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+     border: 1px solid var(--border-color);
+}
+#contact-cta h2 { padding-top: 0; }
+#contact-cta p {
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #e9ecef; /* Slightly different background */
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem; /* Give space above footer */
+    border-top: 1px solid var(--border-color);
+}
+footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+.footer-links a {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    color: var(--secondary-color);
+}
+.footer-links a:hover {
+     color: var(--primary-color);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.2rem; }
+
+    #hero { padding: 4rem 0 2rem 0; }
+    .profile-pic { width: 120px; height: 120px;}
+
+    /* Skills grid already defaults to 1 column, so no change needed here unless the media query above uses min-width > 768px */
+
+    /* Adjust timeline position for smaller screens */
+    .timeline::before {
+        left: 10px;
+    }
+    .timeline-item {
+        padding-left: 40px;
+    }
+    .timeline-item::before {
+         left: 2.5px; /* 10px - (18px/2) - 3px/2 */
+         width: 16px;
+         height: 16px;
+    }
+
+    .contact-links {
+        flex-direction: column; /* Stack contact links */
+        gap: 0.8rem;
+        align-items: center; /* Center stacked items */
+    }
+     /* Adjust CV button margin when stacked */
+    .contact-links a.cta-button {
+       margin-left: 0;
+       margin-top: 0.5rem; /* Add space above button */
+    }
+
+
+    .language-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+    }
+}
+
+/* Additional check for screens smaller than the 2-column breakpoint but larger than the main mobile breakpoint */
+@media (max-width: 599px) { /* One pixel less than the 2-column breakpoint */
+    .skills-grid {
+        grid-template-columns: 1fr; /* Ensure it stays 1 column */
+    }
+}
