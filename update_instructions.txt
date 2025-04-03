@@ -1,0 +1,10 @@
+Make any changes you want to your local files (index.html, style.css, etc.).
+
+Open your Terminal in the project folder.
+
+Run the following Git commands:
+
+--commands
+git add .
+git commit -m "Describe the update you made"
+git push origin main
